@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="pymonkay",  # Package name (how users will install it: pip install pymonkay)
-    version="0.1.0",    # Version number
+    version="0.1.1",    # Version number
     packages=find_packages(),
     install_requires=[
     ],
