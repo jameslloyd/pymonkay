@@ -14,7 +14,7 @@ def create_project(args):
 
     # Initialize virtual environment
     subprocess.run(["python", "-m", "venv", os.path.join(args.project_name, ".venv")])
-
+    
     # Create main.py
     with open(os.path.join(args.project_name, "main.py"), "w") as f:
         f.write("# Your Python code goes here")
@@ -25,7 +25,10 @@ def create_project(args):
 
     with open(os.path.join(args.project_name, ".gitignore"), "w") as f:
         f.write(".venv\n__pycache__\n*.pyc\n*.pyo\n*.pyd\n")
-        
+    
+    if args.gitinit:
+        subprocess.run(["git", "init", os.path.join(args.project_name)])
+     
     with open(os.path.join(args.project_name, "Dockerfile"), "w") as f:
         f.write("FROM python:3.8\n\nWORKDIR /app\n\nCOPY . .\n\nRUN pip install -r requirements.txt\n\nCMD [\"python\", \"main.py\"]")
 
@@ -66,6 +69,7 @@ def main():
     parser.add_argument("project_name", help="name of the project you want to create")
     parser.add_argument("-v","--venv", action="store_true", help="initialize a virtual environment")
     parser.add_argument("-f","--force", action="store_true", help="force overwrite existing project")
+    parser.add_argument("-g","--gitinit", action="store_true", help="Initialise a git repository")
     args = parser.parse_args()
     
     print(args)
