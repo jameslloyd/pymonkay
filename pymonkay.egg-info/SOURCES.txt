@@ -1,0 +1,10 @@
+LICENSE
+pyproject.toml
+setup.py
+pymonkay/__init__.py
+pymonkay/main.py
+pymonkay.egg-info/PKG-INFO
+pymonkay.egg-info/SOURCES.txt
+pymonkay.egg-info/dependency_links.txt
+pymonkay.egg-info/entry_points.txt
+pymonkay.egg-info/top_level.txt

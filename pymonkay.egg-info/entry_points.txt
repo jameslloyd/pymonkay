@@ -1,0 +1,2 @@
+[console_scripts]
+pymonkay = pymonkay.main:main
